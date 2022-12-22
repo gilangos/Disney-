@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disney+</title>
+    <link rel="stylesheet" href="./styles/global.css">
+    <link rel="shortcut icon" type="image/jpg" href="./assets/favicon.ico" />
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+    integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+    />
+    
+</head>
+<body>
+    <div class="app">
+        <div class="main-movie-img">
+            <img src="" alt="">
+        </div>
+        <header class="header">
+            <img src="./assets/logo.png" alt="disney+ logo">
+            <button onclick="handleToggle()" class="menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </header>
+        <main>
+            <div class="main-movie">
+                <div class="movie-rating">
+                    <img src="./assets/logo-imdb.png" alt="">
+                    <strong id="rating">7.9</strong>
+                </div>
+                <span class="movie-genre">kids - aventura - comedia</span>
+                <h1 class="movie-name">Luca</h1>
+                <p class="movie-description">
+                    sim
+                </p>
+                <button class="btn-watch"><img src="./assets/icon-play.png" alt="">Assistir agora</button>
+            </div>
+            <aside class="aside">
+                <h3>Filmes</h3>
+                <div class="search-container">
+                    <input type="text" name="search-movies" id="search">
+                    <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+                <ul class="movies-list"> 
+                    <!-- <li class="movie active" id="">
+                        <span class="genre">kids</span>
+                        <strong class="name">movie name</strong>
+                        <button class="btn-play"><img src="./assets/icon-play-button.png" alt=""></button>
+                        <div class="img">
+                            <img src="./assets/item-background.png" alt="">
+                        </div>
+                    </li> -->
+                </ul>
+            </aside>
+        </main>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
