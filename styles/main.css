@@ -210,12 +210,12 @@ main aside .movies-list .movie:hover button{
         position: fixed;
         transition: all 0.4s;
         height: 100vh;
-        width: 100vw;
-        top: 0;
-        right: -100vw;
+        inset: 0;
         background-color: rgba(0, 0, 0, 0.7);
         backdrop-filter: blur(5px);
         padding: 70px;
+
+        transform: translate(100vw);
     }
     main aside  h3{
         margin-bottom: 20px;
@@ -233,7 +233,7 @@ main aside .movies-list .movie:hover button{
     }
 
     .aside.activated{
-       right: 0;
+       transform: translate(0);
     }
 
     main .main-movie .movie-rating strong{

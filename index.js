@@ -7,11 +7,11 @@ const search_input = document.querySelector('#search')
 
 const movieslist = document.querySelector('.movies-list')
 
-let inicialization = true;
 
 
 const ClearMoviesList = ()=>{
     movieslist.innerHTML = ""
+    console.log('sia')
 }
 
 
@@ -53,15 +53,6 @@ const getmoviedata = async(movieId) => {
 }
   
 
-const zoomEffect = ()=>{
-  let img = document.querySelector('.main-movie-img img')
-  img.classList.toggle('zoom')
-
-  setTimeout(()=>{
-      img.classList.toggle('zoom')
-  },1000)
-}
-
 
 const activateMovie = (id)=>{
   let movie = document.getElementById(id)
@@ -82,7 +73,7 @@ const activateMovie = (id)=>{
     const img = document.querySelector('.main-movie-img img')
     img.setAttribute('src', movie.image.original)
 
-    zoomEffect()
+    
 
     const strong = document.querySelector('#rating').innerText = movie.rating;
     const span = document.querySelector('.movie-genre').innerText = movie.genre;
@@ -91,7 +82,7 @@ const activateMovie = (id)=>{
 
 // #### função para quando o main movie for setado no menu responsivo ####
     handleToggle()
-
+    
   }
 
   
@@ -158,43 +149,26 @@ const handleSearch = (query)=>{
 }
 
 
-// validação para que a função eventlistener não seja disparada inumeras vezes com o backspace,
-// impedindo bugs visuais.
-let isEmpty = false
 
-search_input.addEventListener('keyup',(e)=>{
+//evento para a barra search
+search_input.addEventListener('input',(e)=>{
    let query = e.target.value;
 
-   if(query.length > 0){
-      handleSearch(query)
-      isEmpty = false
-   }
-   
-   if(isEmpty) return
-
-   if(!query){
-      isEmpty = true
-      loadMovies(!inicialization)
-      return
-   }
+   handleSearch(query)
 })
 
 
-const loadMovies = (inicialization)=>{
-// ## limpa a lista de filmes para que não seja adicionado filmes repetidos
-// ## quando a funçao for executada mais de uma vez
-  ClearMoviesList()
+const loadMovies = ()=>{
 
   movies.map(async(item, index)=>{
 
       let moviedata  = await getmoviedata(item);
       SetmovieInlist(moviedata)
 
-      if(inicialization){
-        index === 0 ? setMainMovie(moviedata.id,index) : null
-      }
+      index === 0 ? setMainMovie(moviedata.id,index) : null
+
   })
 }
 
-loadMovies(inicialization)
+loadMovies()
 
