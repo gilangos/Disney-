@@ -11,7 +11,6 @@ const movieslist = document.querySelector('.movies-list')
 
 const ClearMoviesList = ()=>{
     movieslist.innerHTML = ""
-    console.log('sia')
 }
 
 
